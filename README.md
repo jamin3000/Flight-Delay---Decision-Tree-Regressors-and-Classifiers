@@ -1,2 +1,10 @@
 # Flight-Delay---Decision-Tree-Regressors-and-Classifiers
 Using airport and airline data to predict 1) the duration of a flight delay and 2) whether a flight is delayed beyond 15 minutes as per FAA guidelines. Uses small, highly interpretable Decision Tree regressors and classifiers to achieve high accuracies.
+
+Overhauled and changed into a regressor from: https://www.kaggle.com/code/gcdatkin/flight-cancellation-prediction/notebook
+
+This is a wide re-jigging of the code and models into one which can accurately predict the duration of the departure delay (analogous to arrival delay) and whether there is a delay at all based on the input features.
+
+The original and other notebooks floating around have focused on the mathematical presence of a delay (any departure > scheduled departure time) that can lead to some seriously high accuracies that do not adequately inform a perspective on airline delays. Delays of concern are only greater than 15+ mins according to the FAA, and the scale of each delay varies widely to the point of extreme difference between a 20 minute delay and a 3 hour delay. If we consider the outcomes for an airline or airport when it comes to delays, every minute is of interest. A model that accurately predicts whether a flight will experience a mean 15 minute delay is not nearly as useful as one that can predict a delay at 20 minutes, as this is when penalties and claims may kick in. Further, predicting the scale of the delay based on the input information is enormously helpful in determining what resources should be allocated to a delay response.
+
+As such, this notebook is split into two sections, regression and classification, each addressing a different hypothetical business case for what to predict. The results show that predicting the magnitude of a delay is much easier than predicting whether a delay will occur at all. Decision Trees are used for all models as both regressors and classifiers, with minimal tuning on depth. Decision Trees are a versatile and highly interpretable classifier, whose features are extremely suitable to this proposed case.
